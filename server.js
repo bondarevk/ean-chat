@@ -18,8 +18,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-const port = process.env.PORT || '4100';
+const port = process.env.PORT || '80';
 app.set('port', port);
 
 const server = http.createServer(app);
-server.listen(port, () => console.log(`Server running on 0.0.0.0:${port}`));
+server.listen(port, '0.0.0.0', () => console.log(`Server running on 0.0.0.0:${port}`));
