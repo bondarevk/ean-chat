@@ -7,6 +7,15 @@ module.exports = {
 
       console.log('Client connected.');
 
+      setTimeout(() => {
+        socket.emit('message', {
+          id: 2,
+          sender: 'Server',
+          text: 'Whooop!'
+        });
+        console.log('Whoop!');
+      }, 2000);
+
       socket.emit('message', {
         id: 1,
         sender: 'Server',
