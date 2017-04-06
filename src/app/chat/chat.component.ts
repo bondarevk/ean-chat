@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatService } from '../shared/services/chat.service';
+import { IMessageMap } from '../shared/data/imessage-map';
 
 @Component({
   selector: 'app-chat',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatComponent implements OnInit {
 
-  constructor() { }
+  private messages: IMessageMap;
+
+  constructor(private chatService: ChatService) {
+    this.messages = chatService.getMessages();
+  }
 
   ngOnInit() {
+
   }
 
 }

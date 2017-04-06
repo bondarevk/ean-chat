@@ -6,11 +6,15 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './chat/chat.component';
+import {ChatService} from './shared/services/chat.service';
+import {SocketService} from './shared/services/socket.service';
+import { ToArrayPipe } from './shared/pipes/to-array.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    ToArrayPipe
   ],
   imports: [
     BrowserModule,
@@ -18,7 +22,7 @@ import { ChatComponent } from './chat/chat.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ChatService, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

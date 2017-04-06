@@ -3,6 +3,7 @@ const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
 
+const iocore = require('./server/socket/iocore');
 const api = require('./server/routes/api');
 
 const app = express();
@@ -22,4 +23,6 @@ const port = process.env.PORT || '8080';
 app.set('port', port);
 
 const server = http.createServer(app);
+const io = require('socket.io')(server);
+iocore.init(io);
 server.listen(port, '0.0.0.0', () => console.log(`Server running on 0.0.0.0:${port}`));
